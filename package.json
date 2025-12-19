@@ -1,0 +1,19 @@
+{
+  "name": "rock-paper-scissors-main",
+  "version": "1.0.0",
+  "description": "[![Live Demo](https://img.shields.io/badge/demo-online-green?style=for-the-badge&logo=github)](https://heykhem.github.io/rock-paper-scissors/)",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.18",
+    "express": "^5.2.1",
+    "tailwindcss": "^4.1.18",
+    "vite": "^7.3.0"
+  }
+}

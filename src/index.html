@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissor Game</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="/output.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+  <body>
+    <div class="container relative">
+      <div class="wrapper hello !hidden">
+        <button onclick="playSound(); playRound(0)" class="btn">
+          <i class="fa-solid fa-hand-back-fist" style="color: #ffffff"></i>
+          <span class="w-text">Rock</span>
+        </button>
+        <button onclick="playSound(); playRound(1)" class="btn">
+          <i class="fa-solid fa-hand" style="color: #ffffff"></i>
+          <span class="w-text">Paper</span>
+        </button>
+        <button onclick="playSound(); playRound(2)" class="btn">
+          <i
+            class="fa-solid fa-hand-scissors fa-rotate-90"
+            style="color: #ffffff"
+          ></i>
+          <span class="w-text">Scissors</span>
+        </button>
+      </div>
+
+      <div class="display_box">
+        <div class="round_show"></div>
+        <div class="result-wrap">
+          <h1 id="result">Start the Game</h1>
+        </div>
+        <div class="score-board">
+          <div class="score-box-container">
+            <span class="computer-score">0</span>
+          </div>
+          <div class="score-box-container">
+            <span class="user-score">0</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hand-wrapper">
+        <div class="left-hand-wrapper">
+          <div class="left-player-info">
+            <div class="status-pulse"></div>
+            Computer
+          </div>
+          <div class="lhand">
+            <img
+              src="Assets/rock.png"
+              alt=""
+              class="limg lmove"
+              draggable="false"
+            />
+            <div class="linfo">
+              <p class="para">
+                Opponent is choising a <span id="p2choice"></span>...
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="right-hand-wrapper">
+          <div class="left-player-info right-player-info">
+            <div class="status-pulse"></div>
+            You
+          </div>
+          <div class="rhand">
+            <img
+              src="Assets/Rrock.png"
+              alt=" "
+              class="rimg"
+              draggable="false"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        class="menu absolute top-1/2 left-1/2 z-100 h-[60%] w-[30%] bg-white/10 backdrop-blur-lg border border-white/20 shadow-xl -translate-x-1/2 -translate-y-1/2 rounded-3xl text-white !p-5 flex flex-col gap-6"
+      >
+        <div class="title text-2xl font-semibold">Configure New Game</div>
+        <div
+          class="Rounds text-xl font-medium flex flex-col gap-2 !pb-4 border-b"
+        >
+          Rounds:
+          <div class="flex justify-around items-center">
+            <button
+              class="round-btn inline-flex items-center justify-center w-12 h-12 border-4 rounded-full border-[#6280A8] hover:cursor-pointer hover:border-blue-400 transition-colors"
+            >
+              3
+            </button>
+            <button
+              class="round-btn inline-flex items-center justify-center w-12 h-12 border-4 rounded-full border-[#6280A8] hover:border-blue-400 hover:cursor-pointer"
+            >
+              5
+            </button>
+            <button
+              class="round-btn inline-flex items-center justify-center w-12 h-12 border-4 rounded-full border-[#6280A8] hover:border-blue-400 hover:cursor-pointer"
+            >
+              7
+            </button>
+            <button
+              class="round-btn inline-flex items-center justify-center w-12 h-12 border-4 rounded-full border-[#6280A8] hover:border-blue-400 hover:cursor-pointer"
+            >
+              10
+            </button>
+            <button class="round-btn hover:text-blue-400 hover:cursor-pointer">
+              Unlimited
+            </button>
+          </div>
+        </div>
+        <div class="opponent flex flex-col gap-3 text-xl font-medium">
+          Opponent:
+          <div class="choice flex justify-start gap-10">
+            <div
+              class="btn-computer font-normal bg-[#717984] hover:bg-[#4593DE] !px-8 !py-4 !max-w-[40%] rounded-xl flex items-center justify-center gap-2 hover:cursor-pointer"
+            >
+              <span class="material-symbols-outlined !text-[35px]">
+                smart_toy
+              </span>
+              Computer
+            </div>
+            <div
+              class="btn-computer font-normal bg-[#717984] hover:bg-[#4593DE] !px-8 !py-4 !min-w-[40%] flex justify-center rounded-xl items-center gap-2 hover:cursor-pointer"
+            >
+              <span class="material-symbols-outlined !text-[35px]"> group </span
+              >Friend
+            </div>
+          </div>
+          <div class="start flex justify-start gap-4">
+            <div
+              class="btn-computer font-normal bg-[#717984] hover:bg-[#4593DE] !px-8 !py-4 rounded-xl flex items-center justify-center gap-2 hover:cursor-pointer"
+              id="cancel"
+            >
+              CANCEL
+            </div>
+            <div
+              class="btn-computer font-normal bg-[#4593DE] hover:bg-[#3772a9] !px-8 !py-4 rounded-xl flex items-center justify-center gap-2 hover:cursor-pointer"
+              id="start"
+            >
+              START GAME
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>
+        Copyright © 2025 by,
+        <a href="https://github.com/heykhem" target="_blank" class="social"
+          >Khem Raj Budhathoki
+        </a>
+        &
+        <a href="https://github.com/ishan2021" target="_blank" class="social"
+          >Ishan Ghimire
+        </a>
+      </p>
+    </footer>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/07b482046c.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
